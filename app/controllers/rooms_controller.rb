@@ -6,7 +6,9 @@ class RoomsController < ApplicationController
     @rooms = current_user.rooms
   end
 
-  def show; end
+  def show
+    @themes = @room.themes
+  end
 
   def new
     @room = current_user.rooms.build
@@ -44,7 +46,10 @@ class RoomsController < ApplicationController
       .permit(
         :home_type, :room_type, :accommodate, :bedroom_count, :bathroom_count, :listing_name,
         :description, :address, :has_tv, :has_kitchen, :has_airco, :has_heating, :has_internet,
-        :price, :active
+        :price, :active,  theme_ids: []
       )
   end
+
+
+
 end
