@@ -23,6 +23,11 @@ class Room < ApplicationRecord
       accommodate == 2
   end
 
+
+  def self.order_by_price
+    order :price
+  end
+
   # scope :couple_bedrooms, -> { where(accommodate: 2) }
 
   def self.couple_bedrooms
